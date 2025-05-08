@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Biblioteca Virtual</h1>
+
+    <a href="/adicionar_livro">Adicionar Livro</a>
+
+    <table border="1">
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ano</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro[0] }}</td>
+            <td>{{ livro[1] }}</td>
+            <td>{{ livro[2] }}</td>
+            <td>{{ livro[3] }}</td>
+            <td>
+                {% if livro|length > 4 and livro[4] %}
+                    Emprestado em: {{ livro[4] }}<br>
+                    Devolução: {{ livro[5] }}<br>
+                    Multa: {{ livro[6] }}
+                {% else %}
+                    Disponível
+                {% endif %}
+            </td>
+            <td>
+                <a href="/editar_livro/{{ livro[0] }}">Editar</a>
+                <a href="/apagar_livro/{{ livro[0] }}">Apagar</a>
+                {% if livro|length > 4 and livro[4] %}
+                    <a href="/devolver_livro/{{ livro[0] }}">Devolver</a>
+                {% else %}
+                    <a href="/emprestar_livro/{{ livro[0] }}">Emprestar</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
