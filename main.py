@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, redirect
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -6,17 +6,22 @@ app.secret_key = 'chave_secreta_livro'
 
 livros = []
 
-
 @app.route('/')
 def index():
+    return render_template(('index.html'))
+
+
+
+@app.route('/catalogo')
+def catalogo():
     for livro in livros:
-        if len(livro) > 4 and livro[4]:  # Se tem informação de empréstimo
+        if len(livro) > 4 and livro[4]:
             data_devolucao = datetime.strptime(livro[5], '%Y-%m-%d')
             if datetime.now() > data_devolucao:
                 dias_atraso = (datetime.now() - data_devolucao).days
                 multa = 10 + (0.01 * dias_atraso)
                 livro[6] = f"R${multa:.2f}"
-    return render_template('index.html', livros=livros)
+    return render_template('catalago.html', livros=livros)
 
 
 @app.route('/adicionar_livro', methods=['GET', 'POST'])
