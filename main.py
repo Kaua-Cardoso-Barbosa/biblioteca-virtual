@@ -21,7 +21,7 @@ def catalogo():
                 dias_atraso = (datetime.now() - data_devolucao).days
                 multa = 10 + (0.01 * dias_atraso)
                 livro[6] = f"R${multa:.2f}"
-    return render_template('catalago.html', livros=livros)
+    return render_template('catalogo.html', livros=livros)
 
 
 @app.route('/adicionar_livro', methods=['GET', 'POST'])

@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Biblioteca virtual</h1>
-        
+        <h1 class="biblioteca" >Biblioteca virtual</h1>
+        <h2 class="mini-texto" >Bem vindo a Biblioteca virtual</h2>
+        <a class="home" href="/">HOME</a>
+        <a class="catalogo" href="/catalogo">CATALOGO</a>
     </header>
+    <main>
+        <a class="emprestar" href="/catalogo">Empreste um livro</a>
+    </main>
 </body>
 </html>

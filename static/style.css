@@ -6,6 +6,58 @@
     text-decoration: none;
 }
 
+.mini-texto{
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: -5px 2px 2px 7px black;
+}
+
+.biblioteca{
+    box-shadow: -5px 2px 2px 7px black;
+}
+
+.home{
+    position: absolute;
+    color: black;
+    background-color: purple;
+    padding: 1vh;
+    left: 95vh;
+    top: 27vh;
+    border-radius: 10px;
+}
+
+.catalogo{
+    position: absolute;
+    color: black;
+    background-color: purple;
+    padding: 1vh;
+    left: 115vh;
+    top: 27vh;
+    border-radius: 10px;
+    }
+
+.catalogo:hover{
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+
+.emprestar{
+    position: absolute;
+    color: black;
+    background-color: purple;
+    padding: 5vh;
+    left: 86vh;
+    top: 50vh;
+    border-radius: 10px;
+    font-size: 6vh
+}
+
+.emprestar:hover{
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+
 body {background-color: #d0a3cd;
 }
 
